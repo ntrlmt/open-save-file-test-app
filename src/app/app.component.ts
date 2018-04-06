@@ -9,6 +9,7 @@ import * as FileSaver from 'file-saver';
 })
 export class AppComponent {
   title = 'app';
+  fileName: string = 'test.txt';
   readText: string;
   saveText: string = 'test';
 
@@ -38,6 +39,6 @@ export class AppComponent {
     // const data = 'test';
     let bom = new Uint8Array([0xEF, 0xBB, 0xBF]);
     let blob = new Blob([bom, this.saveText], {"type": "text/csv"});
-    FileSaver.saveAs(blob, 'test_data.txt');
+    FileSaver.saveAs(blob, this.fileName);
   }
 }
